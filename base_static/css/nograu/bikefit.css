@@ -66,6 +66,7 @@
     flex: 1 0 0%;
     width: 100%;
     max-width: 100%;
+    display: inline-block;
 }
 .bikefit-form-label p {
     padding: 2rem;
@@ -81,7 +82,15 @@
     flex: 1 0 0%;
     width: 100%;
     max-width: 100%;
+    display: inline-block;
 }
+@media screen and (max-width: 500px) { 
+  
+    .bikefit-form-label, 
+    .bikefit-form-field { 
+        width: 70%; 
+    }
+}    
 .bikefit-form-field-email {
     align-items: center;
     padding: 0rem 1.5rem 1.5rem 1.5rem;
