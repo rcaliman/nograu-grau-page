@@ -37,7 +37,7 @@ ALLOWED_HOSTS = config(
 #CSRF_TRUSTED_ORIGINS = config(
 #    "CSRF_TRUSTED_ORIGIN", cast=lambda x: [s.strip() for s in x.split(",")]
 #)
-CSRF_TRUSTED_ORIGINS = ['http://www.nograu.com.br','*www.nograu.com.br*','http://127.0.0.1*', '*127.0.0.1*']
+CSRF_TRUSTED_ORIGINS = ['https://www.nograu.com.br',]
 
 
 # Application definition
