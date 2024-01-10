@@ -11,4 +11,5 @@ class ModelMural(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return f'{self.nome} - {self.email}'
+        data = self.data.strftime('%d/%m/%Y - %H:%M:%S')
+        return f'{data} - {self.nome} - {self.email}'
