@@ -133,7 +133,7 @@ class TestBikefit(TestCase):
     def test_model_bikefit_links_returns__str__(self):
         model_bikefit_links = ModelBikefitLinks(descricao='descricao', link='http://link.url')
         string = str(model_bikefit_links)
-        self.assertEqual(string, 'descricao - http://link.url')
+        self.assertEqual(string, 'http://link.url')
 
     def test_model_bikefit_about_returns__str__(self):
         model_bikefit_about = ModelBikefitAbout(
