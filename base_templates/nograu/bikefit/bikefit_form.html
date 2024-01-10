@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <form method='POST' action={{ form_action }}>
+        <ul class="bikefit-list-group">
+            {% csrf_token %}
+            {% for field in form %}
+            <li class="bikefit-list-item">
+                {% if field.label|lower == 'email' %}
+                    <div class="bikefit-form-label">
+                        <p>
+                            <label for="{{ field.id_for_label }}"># {{ field.label|upper }}</label>
+                        </p>
+                    </div>
+                {% else %}
+                    <div class="bikefit-form-label">
+                        <p>
+                            <label for="{{ field.id_for_label }}"># {{ field.label|upper }}</label>
+                        </p>
+                        {% with "img/nograu/bikefit/"|add:field.label|lower|add:".gif" as image %}
+                            <img src='{% static image %}'>
+                        {% endwith %}
+                    </div>
+                {% endif %}
+                {% if field.label|lower == 'email' %}
+                    <div class="bikefit-form-field-email">
+                        {{ field }}
+    
+                        {{ field.errors }}
+                    </div>
+                {% else %}
+                    <div class="bikefit-form-field">
+                        {{ field }}<span class='bikefit-label-cm'>cm</span>
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+                <div class="bikefit-help-text">
+                    {% if field.help_text %}
+                        {{ field.help_text }}
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <ul class='bikefit-list-group'>
+            <li class='bikefit-list-item'>
+                <div class='bikefit-message-box'>
+                    <b>Muito importante</b>: este bikefit virtual usa uma fórmula simples e consagrada
+                    mas deve ser
+                    entendido apenas como ponto de partida para quem quer estar bem posicionado em cima
+                    de uma bicicleta. Sempre que possível contatem um profissional,
+                    seja para adquirir uma nova bicicleta ou para estar confortavel na que você já tem.
+                    Não existem dois corpos exatamente iguais, entao mesmo duas
+                    pessoas com as mesmas medidas podem ter sensações diferentes com o mesmo equipamento.
+                    Contatem um profissional especialmente se continuarem a sentir dores ou desconforto
+                    após aplicar as medidas calculadas aqui.
+                    <span class='bikefit-small-text'>
+                        * O chamado metodo LeMond, usado aqui, foi criado pelo tri-campeão do Tour de France Greg Lemond. 
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <ul class="bikefit-list-group">
+            <li class="bikefit-list-item">
+                <div class="bikefit-form-button-content">
+                    <button class='bikefit-button' type='submit'>enviar medidas para cálculo</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+{% endblock content %}

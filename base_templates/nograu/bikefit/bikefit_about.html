@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <ul class="bikefit-list-group">
+        <li class="bikefit-list-item-about">
+            <h3>{{ about.titulo }}</h3><br>
+            <p>{{ about.text|linebreaks }}</p>
+            <a href='mailto:{{ about.email }}'>{{ about.nome }}</a>
+        </li>
+    </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,186 @@
+@import './constants.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font-size: 1.6rem;
+    font-family: var(--font-sans-serif);
+    line-height: 1.5;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+footer {
+    padding: 2rem 0;
+    position: relative;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+form {
+    box-sizing: border-box;
+}
+a {
+    color: var(--color-red);
+    font-style: normal;
+}
+a:visited {
+    color: var(--color-red);
+    font-style: normal;
+}
+a:hover {
+    color: var(--color-green)
+}
+.container {
+    align-items: center;
+    max-width: 132.0rem;
+    width: 100%;
+    padding-right: var(.75rem);
+    padding-left: var(.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+.light-background {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: .25rem;
+    background: var(--color-light-background);
+    color: var(--color-gray-dark);
+}
+.col-one {
+    width: 100%;
+}
+.col-three {
+    width: 33.3%;
+}
+.col-four {
+    width: 25%;
+}
+.col-align-center {
+    display: inline;
+    margin: auto;
+}
+.col-align-left {
+    display: inline;
+    margin: 0.5rem;
+}
+.nav-bar {
+    padding: 1rem 0;
+    position: relative;
+    background-color: var(--color-header);
+    margin-top: 1.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav-bar .text {
+    align-self: center;
+    flex: 0 0 auto;
+    width: 33.3%;
+    max-width: 100%;
+    opacity: 0.8;
+    padding-left: 15px;
+    color: var(--color-light-gray);
+    font-style: normal;
+    font-size: small;
+}
+.nav-bar .menu-area {
+    flex: 0 0 auto;
+    width: 66.6%;
+    max-width: 100%;
+}
+.nav-bar .menu {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    margin-top: 0;
+}
+.nav-bar .menu .menu-link-active {
+    color: var(--color-light-gray);
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+.nav-bar .menu .menu-link-active:hover {
+    color: var(--color-green);
+}
+.title-bike-fit {
+    -webkit-text-stroke: 0.1rem black;
+    padding-top: 3rem;
+    padding-bottom: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-light-gray);
+}
+.subtitle-bike-fit {
+    text-align: center;
+    font-style: normal;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-light-gray);
+    padding-bottom: 1.5rem;
+}
+.errorlist {
+    color: var(--color-red);
+    list-style-type: none;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    font-weight: bolder;
+}
+.message {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid var(--color-dark-text);
+    background: var(--color-gray-2);
+    color: var(--color-dark-text);
+    display: inline-block;
+    position: absolute;
+}
+.message-error {
+    border: 0.1rem solid var(--color-error-dark);
+    background: var(--color-error-light);
+    color: var(--color-error-dark);
+}
+  
+.message-success {
+    border: 0.1rem solid var(--color-success-dark);
+    background: var(--color-success-light);
+    color: var(--color-success-dark);
+}
+  
+.message-warning {
+    border: 0.1rem solid var(--color-warning-dark);
+    background: var(--color-warning-light);
+    color: var(--color-warning-dark);
+}
+  
+.message-alert {
+    border: 0.1rem solid var(--color-alert-dark);
+    background: var(--color-alert-light);
+    color: var(--color-alert-dark)
+}
+  
+.message-debug {
+    border: 0.1rem solid var(--color-debug-dark);
+    background: var(--color-debug-dark);
+    color: var(--color-debug-dark);
+}  

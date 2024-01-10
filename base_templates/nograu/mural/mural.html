@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form method='POST' action={{ form_action }}>
+        <ul class="mural-list-group">
+            {% csrf_token %}
+            <li class="mural-list-item">
+            {% for field in form %}
+                    <div class="mural-form-field">
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                    <div class="mural-help-text">
+                        {% if field.help_text %}
+                            {{ field.help_text }}
+                        {% endif %}
+                    </div>
+               
+            {% endfor %}
+            </li>
+            <li class="mural-list-item">
+                <div class="mural-form-button-content">
+                    <button class='bikefit-button' type='submit'>enviar comentário</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<div class='container'>
+    <ul class='mural-list-group'>
+        {% for post in posts %}
+            <li class='mural-list-item'>
+                <div class="mural-post">
+                    <div class="mural-post-mensagem">
+                        {{ post.mensagem|linebreaks }}
+                    </div>
+                    <div class="mural-post-info">
+                       {{ post.data }} - <a href="mailto:{{ post.email}}">{{ post.nome }}</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% include 'nograu/mural/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,26 @@
+<div class="nav-bar">
+    <div class="text">
+        {% if qty_bikefit_today > 1 %}
+            Seja bem vindo(a). Ja fizemos {{ qty_bikefit_today }} cálculos hoje! :)
+        {% endif %}
+        </div>
+    <div class="menu-area">
+        <ul class="menu">
+            <li>
+                <a href="/" class="menu-link-active">bikefit</a>
+            </li>
+            <li>
+                <a href="{% url 'bikefit:previous_calcs' %}" class="menu-link-active">calculos anteriores</a>
+            </li>
+            <li>
+                <a href="{% url 'mural:mural' %}" class="menu-link-active">mural de mensagens</a>
+            </li>
+            <li>
+                <a href="{% url 'bikefit:bikefit_links' %}" class="menu-link-active">links</a>
+            </li>
+            <li>
+                <a href="{% url 'bikefit:bikefit_about' %}" class="menu-link-active">sobre</a>
+            </li>
+        </ul>
+    </div>
+</div>

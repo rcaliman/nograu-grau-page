@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    {% for link in links%}
+    <ul class="bikefit-list-group">
+        <li class="bikefit-list-item-links">
+            <a href="{{ link.link }}" target=#> {{ link.descricao }}</a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock content %}
