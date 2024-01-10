@@ -31,8 +31,7 @@ class TestMural(TestCase):
     def test_model_mural_returning__str__(self):
         model = str(ModelMural(**self.mural_data))
         string = model
-        #data = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
-        data = datetime.now().strftime('%c')
+        data = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
         self.assertEqual(string, f'{data} - John Doe - teste@teste.com')
 
     def test_view_mural_form_valid(self):
