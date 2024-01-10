@@ -143,6 +143,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "base_static",
 ]
+STATIC_ROOT = BASE_DIR / 'collect_static'
 
 
 # Default primary key field type
