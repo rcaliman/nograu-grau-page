@@ -34,6 +34,10 @@ ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS', cast=lambda x: [s.strip() for s in x.split(',')]
 )
 
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGIN", cast=lambda x: [s.strip() for s in x.split(",")]
+)
+
 
 # Application definition
 
