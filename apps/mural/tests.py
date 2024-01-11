@@ -3,7 +3,7 @@ from django.test.client import RequestFactory
 from datetime import datetime
 from django.urls import reverse
 from apps.mural.models import ModelMural
-from .pagination import make_pagination_range
+from .utils.pagination import make_pagination_range
 
 class TestMural(TestCase):
     def setUp(self, *args, **kwargs):

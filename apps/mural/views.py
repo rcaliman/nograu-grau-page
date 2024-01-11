@@ -3,7 +3,7 @@ from django.urls import reverse
 from .forms import FormModelMural
 from .models import ModelMural
 from django.contrib import messages
-from .pagination import make_pagination
+from .utils.pagination import make_pagination
 
 HEAD_TEMPLATE = 'nograu/head.html'
 NAVBAR_TEMPLATE = 'nograu/navbar.html'

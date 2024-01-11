@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .calculator import Calculator
+from .utils.calculator import Calculator
 from apps.bikefit.models import ModelBikefit, ModelBikefitLinks, ModelBikefitAbout
 from django.urls import reverse
 

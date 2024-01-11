@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import FormBikefit, FormPreviousCalcs
-from .calculator import Calculator
+from .utils.calculator import Calculator
 from datetime import date
 from .models import ModelBikefit, ModelBikefitLinks, ModelBikefitAbout
 from django.contrib import messages
@@ -18,6 +18,7 @@ def bikefit_form(request):
     data_bikefit_form = request.session.get('data_bikefit_form', None)
     form = FormBikefit(data_bikefit_form)
     form_action = reverse('bikefit:bikefit_result')
+    labels = ('CAVALO', 'ESTERNO', 'BRAÇO', 'EMAIL')
     title = 'BIKE FIT VIRTUAL'
     subtitle = (
                 'Digite com atenção suas medidas em CENTIMETROS e conforme as imagens.',
@@ -28,6 +29,7 @@ def bikefit_form(request):
                     'qty_bikefit_today': qty_bikefit_today,
                     'form': form, 
                     'form_action': form_action, 
+                    'labels': labels,
                     'title': title, 
                     'subtitle': subtitle,
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,

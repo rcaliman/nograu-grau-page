@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load to_cedilha %}
 
 {% block content %}
 <div class="container">
@@ -17,7 +18,7 @@
                 {% else %}
                     <div class="bikefit-form-label">
                         <p>
-                            <label for="{{ field.id_for_label }}"># {{ field.label|upper }}</label>
+                            <label for="{{ field.id_for_label }}"># {{ field.label|to_cedilha|upper }}</label>
                         </p>
                         {% with "img/nograu/bikefit/"|add:field.label|lower|add:".gif" as image %}
                             <img src='{% static image %}'>
