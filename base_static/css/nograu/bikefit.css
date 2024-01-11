@@ -84,7 +84,7 @@
     max-width: 100%;
     display: inline-block;
 }
-@media screen and (max-device-width: 500px) { 
+@media only screen and (max-device-width: 600px) { 
   
     .bikefit-form-label, 
     .bikefit-form-field { 
@@ -302,19 +302,21 @@
     flex-wrap: wrap;
     text-align: center;
     width: 80%;
-}
-@media screen and (max-device-width: 500px) { 
-  
-    .mural-list-group, 
-    .mural-list-item { 
-        width: 100%; 
-    }
-}    
+}  
 .mural-form-field {
     display: block;
     width: 100%;
     padding: 0.5rem;
 }
+@media only screen and (max-device-width: 600px) { 
+  
+    .mural-list-group, 
+    .mural-list-item,
+    .mural-for-field { 
+        width: 100%; 
+        padding: 1rem 0 1rem 0;
+    }
+}  
 .mural-form-field input {
     width: 80%;
     border-top-right-radius: 0;
