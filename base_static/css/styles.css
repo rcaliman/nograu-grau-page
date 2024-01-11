@@ -168,7 +168,7 @@ a:hover {
 }
 @media only screen and (max-device-width: 600px) { 
     .subtitle { 
-        padding: 0 0.5rem 1.5rem 0.5rem;
+        padding: 0 0.8rem 1.5rem 0.8rem;
     }
 } 
 .errorlist {
