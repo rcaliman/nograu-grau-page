@@ -23,34 +23,41 @@
       <button type="submit" class='bikefit-button'>buscar</button>
    </form>
 </div>
-<div class='container class="previous-calcs-content"'>
+{% if previous_calcs%}
+   <div class='previous-qty-founded'>{{ qty_founded }} encontrado(s).</div>
+{% endif %}
+<div class='container previous-calcs-content'>
    {% if previous_calcs %}
-     <div class='previous-qty-founded'>{{ qty_founded }} encontrado(s).</div>
-         <table class='table-previous-calcs'>
-            <tr>
-               <th>data</th>
-               <th>cavalo</th>
-               <th>esterno</th>
-               <th>braço</th>
-               <th>quadro speed</th>
-               <th>quadro mtb</th>
-               <th>altura selim</th>
-               <th>top tube efetivo</th>
-            </tr>
-            {% for calc in previous_calcs %}
-
-            <tr>
-               <td>{{ calc.data|date:'d/m/Y' }}</td>
-               <td>{{ calc.cavalo }} cm</td>
-               <td>{{ calc.esterno }} cm</td>
-               <td>{{ calc.braco }} cm</td>
-               <td>{{ calc.quadro_speed }} cm</td>
-               <td>{{ calc.quadro_mtb }}"</td>
-               <td>{{ calc.altura_selim }} cm</td>
-               <td>{{ calc.top_tube_efetivo }} cm</td>
-            </tr>
-            {% endfor %}
-         </table>
+      {% for calc in previous_calcs %}
+         <div class='previous-calcs-col'>
+            <table class='table-previous-calcs'>
+               <tr>
+                  <th>data</th>
+                  <th>cavalo</th>
+                  <th>esterno</th>
+                  <th>braço</th>
+               </tr>
+               <tr>
+                  <td>{{ calc.data|date:'d/m/Y' }}</td>
+                  <td>{{ calc.cavalo }} cm</td>
+                  <td>{{ calc.esterno }} cm</td>
+                  <td>{{ calc.braco }} cm</td>
+               </tr>
+               <tr>
+                  <th>quadro speed</th>
+                  <th>quadro mtb</th>
+                  <th>altura selim</th>
+                  <th>top tube efetivo</th>
+               </tr>
+               <tr>
+                  <td>{{ calc.quadro_speed }} cm</td>
+                  <td>{{ calc.quadro_mtb }}"</td>
+                  <td>{{ calc.altura_selim }} cm</td>
+                  <td>{{ calc.top_tube_efetivo }} cm</td>
+               </tr>
+            </table>
+         </div>
+      {% endfor %}
    {% endif %}
 </div>
 {% endblock content %}

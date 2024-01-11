@@ -226,7 +226,19 @@
     padding: 1rem 1.5rem 1rem 1.5rem;
 }
 .previous-calcs-content {
-    align-content: center;
+    text-align: center;
+}
+.previous-calcs-col {
+    display: inline-block;
+    width: 45%;
+}
+@media only screen and (max-device-width: 600px) { 
+    .previous-calcs-col { 
+        width: 100%; 
+    }
+}
+.previous-calcs-col th {
+    background-color: var(--color-light-gray);
 }
 .previous-help-text {
     padding: 1rem;
