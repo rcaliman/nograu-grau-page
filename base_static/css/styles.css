@@ -62,9 +62,23 @@ a:hover {
 .col-three {
     width: 33.3%;
 }
+@media screen and (max-width: 500px) { 
+  
+    .col-three, 
+    .col-three { 
+        width: 100%; 
+    }
+}    
 .col-four {
     width: 25%;
 }
+@media screen and (max-width: 500px) { 
+  
+    .col-four, 
+    .col-four { 
+        width: 50%; 
+    }
+}    
 .col-align-center {
     display: inline;
     margin: auto;

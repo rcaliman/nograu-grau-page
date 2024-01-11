@@ -88,7 +88,7 @@
   
     .bikefit-form-label, 
     .bikefit-form-field { 
-        width: 70%; 
+        width: 100%; 
     }
 }    
 .bikefit-form-field-email {
@@ -303,6 +303,13 @@
     text-align: center;
     width: 80%;
 }
+@media screen and (max-width: 500px) { 
+  
+    .mural-list-group, 
+    .mural-list-item { 
+        width: 100%; 
+    }
+}    
 .mural-form-field {
     display: block;
     width: 100%;
