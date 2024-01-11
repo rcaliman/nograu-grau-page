@@ -38,6 +38,9 @@ a:visited {
 a:hover {
     color: var(--color-green)
 }
+.arrow {
+    color: var(--color-red);
+}
 .container {
     align-items: center;
     max-width: 132.0rem;
@@ -63,8 +66,6 @@ a:hover {
     width: 33.3%;
 }
 @media only screen and (max-device-width: 600px) { 
-  
-    .col-three, 
     .col-three { 
         width: 100%; 
     }
@@ -72,9 +73,7 @@ a:hover {
 .col-four {
     width: 25%;
 }
-@media only screen and (max-device-width: 600px) { 
-  
-    .col-four, 
+@media only screen and (max-device-width: 600px) {  
     .col-four { 
         width: 50%; 
     }
@@ -96,39 +95,53 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
 }
-.nav-bar .text {
-    align-self: center;
-    flex: 0 0 auto;
+.menu-text {
     width: 33.3%;
-    max-width: 100%;
     opacity: 0.8;
     padding-left: 15px;
     color: var(--color-light-gray);
     font-style: normal;
     font-size: small;
+    margin: auto;
+    display: inline-block;
 }
-.nav-bar .menu-area {
-    flex: 0 0 auto;
+@media only screen and (max-device-width: 600px) { 
+    .menu-text { 
+        width: 95%; 
+        text-align: left;
+        padding: 0rem 0 1rem 0;
+    }
+} 
+.menu-area {
+    display: inline-block;
     width: 66.6%;
-    max-width: 100%;
 }
-.nav-bar .menu {
+.menu {
     justify-content: flex-end;
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
-    margin-top: 0;
 }
-.nav-bar .menu .menu-link-active {
+@media only screen and (max-device-width: 600px) { 
+    .menu,
+    .menu-area { 
+        width: 95%; 
+        justify-content: center;
+    }
+}   
+.menu-link-active {
     color: var(--color-light-gray);
     display: block;
     padding: .5rem 1rem;
     text-decoration: none;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
-.nav-bar .menu .menu-link-active:hover {
+.menu-link-active:visited {
+    color: var(--color-light-gray);
+}
+.menu-link-active:hover {
     color: var(--color-green);
 }
 .title-bike-fit {
