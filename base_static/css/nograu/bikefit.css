@@ -84,7 +84,7 @@
     max-width: 100%;
     display: inline-block;
 }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 600px) { 
   
     .bikefit-form-label, 
     .bikefit-form-field { 
@@ -303,7 +303,7 @@
     text-align: center;
     width: 80%;
 }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 600px) { 
   
     .mural-list-group, 
     .mural-list-item { 

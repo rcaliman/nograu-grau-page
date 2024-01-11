@@ -62,7 +62,7 @@ a:hover {
 .col-three {
     width: 33.3%;
 }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 600px) { 
   
     .col-three, 
     .col-three { 
@@ -72,7 +72,7 @@ a:hover {
 .col-four {
     width: 25%;
 }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 600px) { 
   
     .col-four, 
     .col-four { 
