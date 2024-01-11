@@ -144,7 +144,7 @@ a:hover {
 .menu-link-active:hover {
     color: var(--color-green);
 }
-.title-bike-fit {
+.title {
     -webkit-text-stroke: 0.1rem black;
     padding-top: 3rem;
     padding-bottom: 0.8rem;
@@ -157,7 +157,7 @@ a:hover {
     line-height: 1.2;
     color: var(--color-light-gray);
 }
-.subtitle-bike-fit {
+.subtitle {
     text-align: center;
     font-style: normal;
     font-size: 1.4rem;
@@ -166,6 +166,11 @@ a:hover {
     color: var(--color-light-gray);
     padding-bottom: 1.5rem;
 }
+@media only screen and (max-device-width: 600px) { 
+    .subtitle { 
+        padding: 0 0.5rem 1.5rem 0.5rem;
+    }
+} 
 .errorlist {
     color: var(--color-red);
     list-style-type: none;
