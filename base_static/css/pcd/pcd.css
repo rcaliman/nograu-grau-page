@@ -2,11 +2,26 @@
     text-shadow: 2px 2px 2px rgb(42, 42, 42);
     text-decoration: none;
     color: lightyellow;
-    padding: 0.5rem 3rem 0.5rem 3rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     margin-right: 1rem;
     font-size: large;
     text-decoration: none;
     white-space: nowrap;
+    display: inline-block;
+    width: 49%;
+}
+.titulo-text {
+    text-shadow: 2px 2px 2px rgb(42, 42, 42);
+    text-decoration: none;
+    color: lightyellow;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+    width: 49%;
+    text-align: right;
 }
 .titulo a {
     text-shadow: 2px 2px 2px rgb(42, 42, 42);
@@ -250,19 +265,30 @@ button {
     font-size:small;
     padding: 0 0.3rem 0 0.3rem;
 }
+@media only screen and (max-device-width: 600px) { 
+    .pcd-font-footer{ 
+        width: 33%; 
+        padding: 2rem 1rem 2rem 1rem;
+    }
+}  
 .pcd-font-footer a {
-    color: lightgreen;
+    color: lightyellow;
     text-decoration: none;
 }
 .pcd-font-footer a:visited {
-    color: lightgreen;
+    color: lightyellow;
     text-decoration: none;
 }
 .pcd-font-footer a:hover {
-    color: lightgreen;
+    color: lightyellow;
     text-decoration: underline;
 }
 .pcd-font-footer-calculos {
+    font-size:small;
+    font-weight: bold;
+    padding: 0 0.3rem 0 1rem;
+}
+.pcd-font-title-calculos {
     font-size:small;
     font-weight: bold;
     padding: 0 0.3rem 0 1rem;
@@ -303,4 +329,12 @@ button {
     list-style-type: none;
     font-size: small;
     font-weight: bold;
+}
+.nav-bar-pcd {
+    padding: 1rem 0;
+    position: relative;
+    background-color: var(--color-header);
+    margin-top: 1.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    flex-wrap: wrap;
 }
