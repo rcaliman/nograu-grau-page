@@ -270,14 +270,12 @@ button {
 
 .pcd-previous-calcs-col {
     display: inline-block;
-    width: 100%;
 }
 .pcd-previous-calcs-col th {
     background-color: var(--color-light-gray);
 }
 .pcd-table-previous-calcs {
     margin: 0 auto;
-    width: 80%;
     align-self: center;
     padding: 1rem 1rem 3rem 1rem;
 

@@ -12,28 +12,38 @@
                <tr>
                   <th>código banco</th>
                   <th>próxima parcela</th>
-                  <th>última parcela</th>
-                  <th>quantidade parcelas</th>
-                  <th>valor parcela</th>
                </tr>
                <tr>
                   <td>{{  resultado.banco.numero_codigo }}</td>
                   <td>{{  resultado.proxima_parcela|date:'d/m/Y' }}</td>
-                  <td>{{  resultado.ultima_parcela|date:'d/m/Y' }}</td>
-                  <td>{{  resultado.quantidade_de_parcelas }}</td>
-                  <td>R$ {{  resultado.valor_parcela|stringformat:".2f"|to_virgula }}</td>
+               </tr>
+               <tr>  
+                  <th>valor parcela</th>
+                  <th>valor emprestado</th>
                </tr>
                <tr>
-                  <th>valor emprestado</th>
+                  <td>R$ {{  resultado.valor_parcela|stringformat:".2f"|to_virgula }}</td>
+                  <td>R$ {{  resultado.valor_emprestado|stringformat:".2f"|to_virgula }}</td>
+               </tr>
+               <tr>
+                  <th>última parcela</th>
+                  <th>quantidade parcelas</th>
+               </tr>
+               <tr>
+                  <td>{{  resultado.ultima_parcela|date:'d/m/Y' }}</td>
+                  <td>{{  resultado.quantidade_de_parcelas }}</td>
+               <tr>
                   <th>ispb</th>
                   <th>taxa juros</th>
+               </tr>
+               <tr>
+                  <td>{{  resultado.banco.numero_ispb }}</td>
+                  <td>{{  resultado.taxa_de_juros|stringformat:".2f"|to_virgula }} %</td>
+               </tr>
                   <th>meses em ser</th>
                   <th>saldo devedor</th>
                </tr>
                <tr>
-                  <td>R$ {{  resultado.valor_emprestado|stringformat:".2f"|to_virgula }}</td>
-                  <td>{{  resultado.banco.numero_ispb }}</td>
-                  <td>{{  resultado.taxa_de_juros|stringformat:".2f"|to_virgula }} %</td>
                   <td>{{  resultado.meses_em_ser }}</td>
                   <td>R$ {{  resultado.saldo_devedor|stringformat:".2f"|to_virgula }}</td>
                </tr>
