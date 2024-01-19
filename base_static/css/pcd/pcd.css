@@ -149,7 +149,7 @@
 @media only screen and (max-device-width: 600px) { 
     .input-bar-button { 
         width: 100%; 
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 2.5rem 1rem;
         text-align: center;
     }
 }  
