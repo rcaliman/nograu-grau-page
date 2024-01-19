@@ -273,6 +273,7 @@ button {
 }
 .pcd-previous-calcs-col th {
     background-color: var(--color-light-gray);
+    font-size: small;
 }
 .pcd-table-previous-calcs {
     margin: 0 auto;
@@ -288,11 +289,14 @@ button {
     border: 0.1rem solid var(--color-gray-dark);
     padding: 0.5rem;
     text-align: center;
+    font-size: small;
+    width: 50%;
 }
 .pcd-table-previous-calcs td {
     border: 0.1rem solid var(--color-gray-dark);
     padding: 0.5rem;
     text-align: end;
+    width: 50%;
 }
 .errorlist {
     color: var(--color-red);

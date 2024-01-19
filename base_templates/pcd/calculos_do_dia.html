@@ -11,19 +11,19 @@
             <table class='pcd-table-previous-calcs'>
                <tr>
                   <th>código banco</th>
-                  <th>próxima parcela</th>
-               </tr>
-               <tr>
-                  <td>{{  resultado.banco.numero_codigo }}</td>
-                  <td>{{  resultado.proxima_parcela|date:'d/m/Y' }}</td>
-               </tr>
-               <tr>  
-                  <th>valor parcela</th>
                   <th>valor emprestado</th>
                </tr>
                <tr>
-                  <td>R$ {{  resultado.valor_parcela|stringformat:".2f"|to_virgula }}</td>
+                  <td>{{  resultado.banco.numero_codigo }}</td>
                   <td>R$ {{  resultado.valor_emprestado|stringformat:".2f"|to_virgula }}</td>
+               </tr>
+               <tr>  
+                  <th>valor parcela</th>
+                  <th>próxima parcela</th>
+               </tr>
+               <tr>
+                  <td>R$ {{  resultado.valor_parcela|stringformat:".2f"|to_virgula }}</td>
+                  <td>{{  resultado.proxima_parcela|date:'d/m/Y' }}</td>
                </tr>
                <tr>
                   <th>última parcela</th>
