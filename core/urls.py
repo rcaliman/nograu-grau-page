@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.bikefit.urls')),
     path('', include('apps.mural.urls')),
+    path('', include('apps.pcd.urls')),
 ]

@@ -1,0 +1,64 @@
+{% extends 'pcd/base.html' %}
+{% load static %}
+{% load to_virgula %}
+
+{% block content %}
+<div class="pcd-result-page">
+    {% if resultado_pcd %}
+    <div class='pcd-result-area'>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Código da compe:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.banco.numero_codigo}}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Data da próxima parcela:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.data_proxima_parcela|date:"d/m/Y" }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Data da última parcela:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.data_ultima_parcela|date:"d/m/Y" }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Quantidade de parcelas:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.quantidade_de_parcelas }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Valor da parcela</div>
+            <div class="pcd-result-cell">R$ {{ resultado_pcd.valor_parcela|stringformat:".2f"|to_virgula }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Valor emprestado:</div>
+            <div class="pcd-result-cell">R$ {{ resultado_pcd.valor_emprestado|stringformat:".2f"|to_virgula }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">ISPB:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.banco.numero_ispb }} - {{ resultado_pcd.banco.nome_extenso }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Taxa de juros:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.taxa_de_juros|stringformat:".2f"|to_virgula }} %</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Meses em ser:</div>
+            <div class="pcd-result-cell">{{ resultado_pcd.meses_em_ser }}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Saldo devedor:</div>
+            <div class="pcd-result-cell">R$ {{ resultado_pcd.saldo_devedor|stringformat:".2f"|to_virgula }}</div>
+        </div>
+    </div>
+    {% endif %}
+    {% if resultado_ispb %}
+    <div class='pcd-result-area'>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">Código da compe:</div>
+            <div class="pcd-result-cell">{{ resultado_ispb.banco.numero_codigo}}</div>
+        </div>
+        <div class="pcd-result-line">
+            <div class="pcd-result-title-cell">ISPB:</div>
+            <div class="pcd-result-cell">{{ resultado_ispb.banco.numero_ispb }} - {{ resultado_ispb.banco.nome_extenso }}</div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

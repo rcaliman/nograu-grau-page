@@ -171,13 +171,6 @@ a:hover {
         padding: 0 0.8rem 1.5rem 0.8rem;
     }
 } 
-.errorlist {
-    color: var(--color-red);
-    list-style-type: none;
-    padding-top: 1rem;
-    padding-right: 2rem;
-    font-weight: bolder;
-}
 .message {
     padding: 1rem;
     border-radius: 0.4rem;

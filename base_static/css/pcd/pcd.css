@@ -1,0 +1,304 @@
+.titulo {
+    text-shadow: 2px 2px 2px rgb(42, 42, 42);
+    text-decoration: none;
+    color: lightyellow;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.titulo a {
+    text-shadow: 2px 2px 2px rgb(42, 42, 42);
+    text-decoration: none;
+    color: lightyellow;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.titulo a:visited {
+    color: lightyellow;
+}
+.help-text {
+    font-size: 0.7em;
+    color: #6b7378;
+}
+.label {
+    background-color: #6c757d;
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+.container-pcd {
+    padding: 1rem 2rem 1rem 2rem;
+}
+.container-ispb {
+    padding: 1rem 2rem 1rem 2rem;
+    width: 30%;
+}
+@media only screen and (max-device-width: 600px) { 
+    .container-ispb { 
+        width: 90%; 
+        padding: 1rem 0 1rem 0;
+        margin: auto;
+    }
+}  
+.input-field {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    width: 16.6%;
+}
+.input-field-ispb {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    width: 50%;
+    display: inline-block;
+}
+@media only screen and (max-device-width: 600px) { 
+    .input-field,
+    .input-field-ispb { 
+        width: 100%; 
+        padding: 1rem 0 1rem 0;
+    }
+}  
+.input-bar {
+    background-color: #d7d8da;
+    border: 0.2rem 0.2rem 0.1rem 0.2rem var(--color-gray-dark) solid;
+    margin: 1rem 0.5rem 0 0.5rem;
+    padding: 1.5rem 3rem 1.5rem 3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-bar-text-area {
+    background-color: #e2e3e5;
+    border: 0.1rem 0.2rem 0.2rem 0.2rem var(--color-gray-dark) solid;
+    margin: 0 0.5rem 1rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.input-bar-text {
+    width: 50%;
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+    padding: 1rem 0 1rem 3rem;
+    font-style: italic;
+}
+@media only screen and (max-device-width: 600px) { 
+    .input-bar-text { 
+        width: 100%; 
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+    }
+}  
+.input-bar-text-ispb {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+    padding: 1rem 0 1rem 3rem;
+    font-style: italic;
+}
+@media only screen and (max-device-width: 600px) { 
+    .input-bar-text-ispb { 
+        width: 100%; 
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+    }
+}  
+.input-bar-button {
+    width: 50%;
+    display: inline-block;
+    margin: auto;
+    text-align: right;
+    padding: 1rem 6rem 1rem 0;
+}
+@media only screen and (max-device-width: 600px) { 
+    .input-bar-button { 
+        width: 100%; 
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+    }
+}  
+.button-field-ispb {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+@media only screen and (max-device-width: 600px) { 
+    .button-field-ispb { 
+        width: 100%; 
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+        display: block;
+    }
+}  
+button {
+    cursor: pointer;
+    width: 130px;
+    color: #fff;
+    background-color: green;
+    border-color: green;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 2rem;
+    border-radius: .25rem;
+    margin: auto;
+}
+.form-control {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 2rem;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.pcd-result-page {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+.pcd-result-area {
+    padding: 1rem 5rem 3rem 5rem;
+    margin: auto;
+    border-radius: .25rem;
+    background: var(--color-light-background);
+    color: var(--color-gray-dark);
+    width: 60%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.pcd-result-line {
+    margin: auto;
+    background-color: var(--color-white);
+    text-align: center;
+    align-content: center;
+    width: 80%;
+}
+.pcd-result-title-cell {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    border-bottom: solid 0.1rem var(--color-light-gray);
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: large;
+}
+.pcd-result-cell {
+    margin: auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    border-bottom: solid 0.1rem var(--color-orange);
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: large;
+    font-weight: bold;
+}
+@media only screen and (max-device-width: 600px) { 
+    .pcd-result-area,
+    .pcd-result-line,
+    .pcd-result-title-cell,
+    .pcd-result-cell
+    { 
+        width: 95%; 
+        padding: 1rem 1rem 1rem 1rem;
+    }
+}  
+.pcd-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: right;
+    padding-right: 10px;
+    background-color: var(--color-header);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+.pcd-font-footer {
+    font-size:small;
+    padding: 0 0.3rem 0 0.3rem;
+}
+.pcd-font-footer a {
+    color: lightgreen;
+    text-decoration: none;
+}
+.pcd-font-footer a:visited {
+    color: lightgreen;
+    text-decoration: none;
+}
+.pcd-font-footer a:hover {
+    color: lightgreen;
+    text-decoration: underline;
+}
+.pcd-font-footer-calculos {
+    font-size:small;
+    font-weight: bold;
+    padding: 0 0.3rem 0 1rem;
+}
+
+.pcd-previous-calcs-col {
+    display: inline-block;
+    width: 100%;
+}
+.pcd-previous-calcs-col th {
+    background-color: var(--color-light-gray);
+}
+.pcd-table-previous-calcs {
+    margin: 0 auto;
+    width: 80%;
+    align-self: center;
+    padding: 1rem 1rem 3rem 1rem;
+
+}
+.pcd-table-previous-calcs tr {
+    border: 0.1rem solid var(--color-gray-dark);
+    padding: 0.5rem;
+}
+.pcd-table-previous-calcs th {
+    border: 0.1rem solid var(--color-gray-dark);
+    padding: 0.5rem;
+    text-align: center;
+}
+.pcd-table-previous-calcs td {
+    border: 0.1rem solid var(--color-gray-dark);
+    padding: 0.5rem;
+    text-align: end;
+}
+.errorlist {
+    color: var(--color-red);
+    list-style-type: none;
+    font-size: small;
+    font-weight: bold;
+}

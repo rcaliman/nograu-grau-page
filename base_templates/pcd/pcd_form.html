@@ -1,0 +1,54 @@
+{% extends 'pcd/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-pcd">
+<form method='POST' action={{ action_form }}>
+    {% csrf_token %}
+    <div class="input-bar">
+        {% for field in form_pcd %}
+            <div class="input-field">
+                <span class="help-text">{{field.help_text}}</span>
+                {{ field }}
+                <span class="label">{{field.label}}</span>
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="input-bar-text-area">
+        <div class='input-bar-text'>
+            <b>Atenção:</b><br>
+            Em todos os campos digite apenas números, sem qualquer outro tipo de caracter.<br>
+            Nos campos monetários coloque os centavos mas sem pontos, vírgulas ou espaços. <br>
+        </div>
+        <div class='input-bar-button'>
+            <button type='submit'>Calcular</button>
+        </div>
+    </div>
+</form>
+</div>
+<div class="container-ispb">
+<form method="POST" action= {{ action_form }}>
+    {% csrf_token %}
+    <div class="input-bar">
+        {% for field in form_ispb %}
+        <div class="input-field-ispb">
+            <span class="help-text">{{field.help_text}}</span>
+            {{ field }}
+            <span class="label">{{field.label}}</span>
+            {{ field.errors }}
+        </div>
+        <div class="button-field-ispb">
+            <button type='submit'>Consultar</button>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="input-bar-text-area">
+        <div class="input-bar-text-ispb">
+            Digite o código do banco e ache o ISPB
+            <div class='help-text'>- Arquivo de bancos atualizado em: {{ data_bank_update }}</div>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock content %}

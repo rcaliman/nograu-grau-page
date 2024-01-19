@@ -108,12 +108,12 @@ class TestBikefit(TestCase):
     def test_view_bikefit_links(self):
         url = reverse('bikefit:bikefit_links')
         resposta = self.client.get(url)
-        self.assertIn('<h3 class="title-bike-fit">LINKS</h3>', resposta.content.decode('utf-8'))
+        self.assertIn('<h3 class="title">LINKS</h3>', resposta.content.decode('utf-8'))
 
     def test_view_bikefit_about(self):
         url = reverse('bikefit:bikefit_about')
         resposta = self.client.get(url)
-        self.assertIn('<h3 class="title-bike-fit">SOBRE</h3>', resposta.content.decode('utf-8'))
+        self.assertIn('<h3 class="title">SOBRE</h3>', resposta.content.decode('utf-8'))
 
     def test_view_bikefit_result_without_post(self):
         url = reverse('bikefit:bikefit_result')
