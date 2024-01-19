@@ -12,8 +12,6 @@ import csv
 HEAD_TEMPLATE = 'pcd/head.html'
 NAVBAR_TEMPLATE = 'pcd/navbar.html'
 TITLE_TEMPLATE = 'pcd/title.html'
-today = datetime.now().strftime('%Y-%m-%d')
-QUANTIDADE_CALCULOS = ModelPCD.objects.all().filter(data_calculo=today).count()
 
 
 def pcd_form(request):
@@ -21,6 +19,9 @@ def pcd_form(request):
     form_ispb = FormISPB(request.session.get('post_busca_ispb', None))
     
     data_bank_update = download_bank_info_file()
+
+    today = datetime.now().strftime('%Y-%m-%d')
+    quantidade_calculos = ModelPCD.objects.all().filter(data_calculo=today).count()
 
     return render(request, 'pcd/pcd_form.html', 
                 {
@@ -31,7 +32,7 @@ def pcd_form(request):
                     'data_bank_update': data_bank_update,
                     'form_pcd': form_pcd,
                     'form_ispb': form_ispb,
-                    'quantidade_calculos': QUANTIDADE_CALCULOS,
+                    'quantidade_calculos': quantidade_calculos,
                 }
     )
 
@@ -66,7 +67,8 @@ def pcd_calculos_do_dia(request):
             }
         )
 
-    
+    today = datetime.now().strftime('%Y-%m-%d')
+    quantidade_calculos = ModelPCD.objects.all().filter(data_calculo=today).count()
     return render(request, 'pcd/calculos_do_dia.html', 
         {
             'HEAD_TEMPLATE': HEAD_TEMPLATE,
@@ -75,7 +77,7 @@ def pcd_calculos_do_dia(request):
             'resultados': resultados,
             'title': 'CÁLCULOS DO DIA',
             'subtitle': ['Dados dos cálculos efetuados hoje',],
-            'quantidade_calculos': QUANTIDADE_CALCULOS,
+            'quantidade_calculos': quantidade_calculos,
         }
     )
 
@@ -89,13 +91,16 @@ def pcd_result(request):
             codigo_banco = POST['codigo_banco']
             resultado_ispb = {'banco': busca_banco(codigo_banco)}
 
+            today = datetime.now().strftime('%Y-%m-%d')
+            quantidade_calculos = ModelPCD.objects.all().filter(data_calculo=today).count()
+
             return render(request, 'pcd/pcd_result.html',
                 {
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
                     'resultado_ispb': resultado_ispb,
-                    'quantidade_calculos': QUANTIDADE_CALCULOS,
+                    'quantidade_calculos': quantidade_calculos,
                 })
         else:
             return redirect('pcd:pcd_form')
@@ -106,13 +111,17 @@ def pcd_result(request):
             del(request.session['post_calcula_pcd'])
             form.save()
             resultado_pcd = calcula_pcd(POST)
+
+            today = datetime.now().strftime('%Y-%m-%d')
+            quantidade_calculos = ModelPCD.objects.all().filter(data_calculo=today).count()
+
             return render(request, 'pcd/pcd_result.html',
                 {
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
                     'resultado_pcd': resultado_pcd,
-                    'quantidade_calculos': QUANTIDADE_CALCULOS,
+                    'quantidade_calculos': quantidade_calculos,
                 })  
         else:
             return redirect('pcd:pcd_form')
