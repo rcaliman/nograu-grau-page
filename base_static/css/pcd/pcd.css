@@ -271,14 +271,19 @@ button {
     background-color: var(--color-header);
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
+@media only screen and (max-device-width: 600px) { 
+    .pcd-footer{ 
+        text-align: center;
+    }
+}  
 .pcd-font-footer {
     font-size:small;
     padding: 0 0.3rem 0 0.3rem;
+    display: inline-block;
 }
 @media only screen and (max-device-width: 600px) { 
     .pcd-font-footer{ 
-        width: 33%; 
-        padding: 2rem 1rem 2rem 1rem;
+        padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     }
 }  
 .pcd-font-footer a {
