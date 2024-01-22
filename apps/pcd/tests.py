@@ -15,6 +15,14 @@ class TestPCD(TestCase):
         }
 
         return super().setUp(*args, **kwargs)
+    
+    def test_model_pcd_string(self):
+        self.data_pcd['data_calculo'] = datetime.now()
+        model = str(ModelPCD(**self.data_pcd))
+        self.assertEqual(
+            'banco: 341 - valor emprestado: 484196 - valor da parcela 25600 - data do calculo 22/01/2024',
+            model
+        )
 
     def test_form_pcd(self):
         url = reverse('pcd:pcd_form')
@@ -26,6 +34,13 @@ class TestPCD(TestCase):
         data = {'codigo_banco': '341'}
         resposta = self.client.post(url, data=data, follow=True)
         self.assertIn('60701190 - ITAÚ UNIBANCO S.A.', resposta.content.decode('utf-8'))
+
+    
+    def test_result_ispb_banco_nao_existente(self):
+        url = reverse('pcd:pcd_result')
+        data = {'codigo_banco': '207'}
+        resposta = self.client.post(url, data=data, follow=True)
+        self.assertIn('não encontrado', resposta.content.decode('utf-8'))
     
 
     def test_result_ispb_validate_numericos(self):
