@@ -3,6 +3,7 @@ from django.urls import reverse
 from apps.pcd.forms import FormModelPCD, FormISPB
 from apps.pcd.models import ModelPCD
 from urllib.request import urlretrieve
+from django.contrib import messages
 from core.settings import BASE_DIR
 import os
 from datetime import datetime
@@ -108,10 +109,17 @@ def pcd_result(request):
         form = FormModelPCD(POST)
         request.session['post_calcula_pcd'] = POST
         if form.is_valid():
-            del(request.session['post_calcula_pcd'])
             form.save()
             resultado_pcd = calcula_pcd(POST)
-
+            if resultado_pcd['quantidade_de_parcelas'] < 1 or \
+                    resultado_pcd['valor_parcela'] < 1 or \
+                    resultado_pcd['valor_emprestado'] < 1 or \
+                    resultado_pcd['taxa_de_juros'] < 1:
+                messages.error(request, '''Existe algum erro nesses dados,
+                               lembre-se que todos os algarismos devem ser digitados,
+                               inclusive zeros à direita, sem vírgulas, pontos ou espaços''')
+                return redirect('pcd:pcd_form')
+            del(request.session['post_calcula_pcd'])
             today = datetime.now().strftime('%Y-%m-%d')
             quantidade_calculos = ModelPCD.objects.all().filter(data_calculo=today).count()
 
@@ -175,7 +183,7 @@ def string_to_date(string_data: str):
     dia, mes, ano = string_data[0:2], string_data[2:4], string_data[4:]
     return datetime(int(ano), int(mes), int(dia))
 
-def calcula_taxa_de_juros(quantidade_parcelas, valor_parcela, valor_emprestado):
+def calcula_taxa_de_juros(quantidade_parcelas, valor_parcela, valor_emprestado) -> float:
     quantidade_parcelas = int(quantidade_parcelas)
     valor_parcela = float(valor_parcela)
     valor_emprestado = float(valor_emprestado)
@@ -191,7 +199,7 @@ def calcula_meses_em_ser(data_proxima_parcela, data_ultima_parcela):
     meses_faltantes = data_ultima_parcela.month - data_proxima_parcela.month
     return (anos_faltantes) * 12 + 1 + meses_faltantes
 
-def formata_valor(valor_parcela:str):
+def formata_valor(valor_parcela:str) -> float:
     inteiros = valor_parcela[:-2]
     centavos = valor_parcela[-2:]
     return float(inteiros + '.' + centavos)

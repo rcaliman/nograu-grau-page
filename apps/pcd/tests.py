@@ -36,6 +36,13 @@ class TestPCD(TestCase):
 
     def test_result_pcd(self):
         url = reverse('pcd:pcd_result')
+        self.data_pcd['valor_parcela'] = '256'
+        data = self.data_pcd
+        resposta = self.client.post(url, data=data, follow=True)
+        self.assertIn('Existe algum erro nesses dados', resposta.content.decode('utf-8'))
+
+    def test_result_pcd_dados_errados(self):
+        url = reverse('pcd:pcd_result')
         data = self.data_pcd
         resposta = self.client.post(url, data=data, follow=True)
         valores = ['341', '22/01/2024', '23/12/2025', '84', 'R$ 256,00', 'R$ 4841,96', '5,21 %', '24', 'R$ 3460,37']
