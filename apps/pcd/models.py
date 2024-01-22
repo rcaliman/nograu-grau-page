@@ -1,6 +1,9 @@
 from django.db import models
 
 class ModelPCD(models.Model):
+    class Meta:
+        verbose_name = 'Dados para calcular PCD'
+        verbose_name_plural = verbose_name
     codigo_banco = models.CharField(max_length=10)
     proxima_parcela = models.CharField(max_length=10)
     ultima_parcela = models.CharField(max_length=10)
