@@ -212,12 +212,13 @@ def busca_banco(codigo_banco):
             ispb, nome_reduzido, numero_codigo, \
             participa_da_compe, acesso_principal, \
             nome_extenso, inicio_da_operacao = linha
-            if codigo_banco == numero_codigo:
-                return {
-                    'numero_codigo': numero_codigo,
-                    'numero_ispb': ispb,
-                    'nome_extenso': nome_extenso
-                }
+            if numero_codigo.isnumeric():
+                if int(codigo_banco) == int(numero_codigo):
+                    return {
+                        'numero_codigo': numero_codigo,
+                        'numero_ispb': ispb,
+                        'nome_extenso': nome_extenso
+                    }
         return {
                 'numero_codigo': codigo_banco,
                 'numero_ispb': 'não encontrado',
