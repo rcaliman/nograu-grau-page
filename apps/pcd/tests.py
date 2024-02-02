@@ -20,7 +20,7 @@ class TestPCD(TestCase):
         self.data_pcd['data_calculo'] = datetime.now()
         model = str(ModelPCD(**self.data_pcd))
         self.assertEqual(
-            'banco: 341 - valor emprestado: 484196 - valor da parcela 25600 - data do calculo 22/01/2024',
+            f'banco: 341 - valor emprestado: 484196 - valor da parcela 25600 - data do calculo {datetime.now().strftime("%d/%m/%Y")}',
             model
         )
 
