@@ -111,10 +111,10 @@ def pcd_result(request):
         if form.is_valid():
             form.save()
             resultado_pcd = calcula_pcd(POST)
-            if resultado_pcd['quantidade_de_parcelas'] < 1 or \
-                    resultado_pcd['valor_parcela'] < 1 or \
-                    resultado_pcd['valor_emprestado'] < 1 or \
-                    resultado_pcd['taxa_de_juros'] < 1:
+            if int(resultado_pcd['quantidade_de_parcelas']) < 1 or \
+                    float(resultado_pcd['valor_parcela']) < 1 or \
+                    float(resultado_pcd['valor_emprestado']) < 1 or \
+                    float(resultado_pcd['taxa_de_juros']) < 1:
                 messages.error(request, '''Existe algum erro nesses dados,
                                lembre-se que todos os algarismos devem ser digitados,
                                inclusive zeros à direita, sem vírgulas, pontos ou espaços''')
