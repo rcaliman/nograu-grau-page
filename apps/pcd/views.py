@@ -112,6 +112,7 @@ def pcd_result(request):
             form.save()
             resultado_pcd = calcula_pcd(POST)
             if int(resultado_pcd['quantidade_de_parcelas']) < 1 or \
+                    int(resultado_pcd['meses_em_ser']) < 1 or \
                     float(resultado_pcd['valor_parcela']) < 1 or \
                     float(resultado_pcd['valor_emprestado']) < 1 or \
                     float(resultado_pcd['taxa_de_juros']) < 1:
