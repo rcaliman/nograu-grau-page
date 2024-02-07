@@ -134,9 +134,11 @@ def pcd_result(request):
             ):
                 messages.error(
                     request,
-                    """Existe algum erro nesses dados,
-                               lembre-se que todos os algarismos devem ser digitados,
-                               inclusive zeros à direita e à esquerda, sem vírgulas, pontos ou espaços""",
+                    """
+                        Existe algum erro nesses dados,
+                        lembre-se de que todos os algarismos devem ser digitados,
+                        inclusive zeros à direita e à esquerda, sem vírgulas, pontos ou espaços
+                    """,
                 )
                 return redirect("pcd:pcd_form")
             form.save()
