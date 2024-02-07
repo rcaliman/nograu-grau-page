@@ -1,3 +1,5 @@
+*.csv
+lista_de_bancos.csv
 # Django #
 *.log
 *.pot
@@ -140,3 +142,6 @@ GitHub.sublime-settings
 lista_de_bancos.csv
 *.csv
 .gitignore
+lista_de_bancos.csv
+apps/pcd/lista_de_bancos.csv
+apps/pcd/lista_de_bancos.csv
