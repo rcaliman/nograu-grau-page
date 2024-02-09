@@ -319,7 +319,7 @@ button {
 .pcd-table-previous-calcs {
     margin: 0 auto;
     align-self: center;
-    padding: 1rem 1rem 3rem 1rem;
+    padding: 1rem 0.7rem 3rem 0.7rem;
     -webkit-transition: -webkit-transform .5s ease;
     transition: transform .2s ease;
 }
