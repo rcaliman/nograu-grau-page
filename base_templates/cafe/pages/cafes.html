@@ -1,0 +1,34 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+<div class='light-background'>
+    <table class="table table-success table-striped caption-top">
+        <caption>CAFÉS</caption>
+        <tr>
+            <th>espécie</th>
+            <th>variedade</th>
+            <th>altitude</th>
+            <th>secagen</th>
+            <th>preço</th>
+            <th>produtor</th>
+            <th>
+                <div class="d-grid mx-auto">
+                    <a class="btn btn-success btn-sm" href="{% url 'cafe:cafe_form' %}">adicionar</a>
+                </div>
+            </th>
+        {% for cafe in cafes %}
+        <tr>
+            <td>{{ cafe.especie }}</td>
+            <td>{{ cafe.variedade }}</td>
+            <td>{{ cafe.altitude }}</td>
+            <td>{{ cafe.secagem }}</td>
+            <td>{{ cafe.preco }}</td>
+            <td>{{ cafe.produtor.nome }}</td>
+            <td>
+                <div class="d-grid mx-auto">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'cafe:cafe' cafe.id %}">detalhes</a>
+                </div>
+            </td>        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

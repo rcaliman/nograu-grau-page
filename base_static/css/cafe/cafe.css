@@ -1,0 +1,94 @@
+@import '../constants.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.torra-anterior {
+    background-color: var(--color-light-gray);
+    padding: 1rem;
+    margin: 1rem;
+    color: var(--color-gray-dark);
+    border-radius: 0.2rem;
+}
+.torra-anterior span {
+    padding-right: 1rem;
+}
+#dados-torra {
+    margin: 1rem 1rem 1rem 1rem;
+}
+.titulo-temperaturas {
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    color: var(--color-gray-dark);
+}
+.temperaturas {
+    margin: 2rem 2rem 2rem 2rem;
+    justify-content: center;
+    display: grid;
+    padding-bottom: 3rem;
+}
+.form-temperaturas {
+    background-color: var(--color-light-gray);
+    text-align: center;
+}
+#temperaturas-torra {
+    text-align: center;
+    background-color: var(--color-light-gray);
+    padding-bottom: 1rem;
+    color: var(--color-gray-dark);
+}
+#temperaturas-torra td {
+    width: 33%;
+}
+.button-torra {
+    display: block;
+    margin-bottom: 1rem;
+}
+.button-torra button {
+    padding: 0.2rem 4rem 0.2rem 4rem;
+}
+.input-min {
+    background-color: var(--color-light-gray);
+    border: none;
+    color: var(--color-gray-dark);
+    width: 4rem;
+}
+.input-temp {
+    width: 4rem;
+    background-color: var(--color-white);
+    margin: 0.1rem;
+    width: 5rem;
+    padding: .375rem .75rem;
+    font-size: large;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control {
+    margin-bottom: 0.5rem;
+}
+.margem-rodape {
+    margin-top: 4rem;
+}
+.grafico-torra {
+    text-align:center;
+}
+.button-comparar {
+    position: absolute;
+}
+.button-adicionar {
+    position: absolute;
+    z-index: 9999;
+}

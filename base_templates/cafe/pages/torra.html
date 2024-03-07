@@ -1,0 +1,28 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+    <div class='light-background'>
+        <table class="table table-success table-striped caption-top">
+            <caption>TORRA</caption>
+            <tr><td>Temperatura inicial:</td><td>{{ torra.temperatura_inicial }}º</td></tr>
+            <tr><td>Temperatura final:</td><td>{{ torra.temperatura_final }}º</td></tr>
+            <tr><td>Temperatura mais baixa:</td><td>{{ torra.temperatura_piso }}º</td></tr>
+            <tr><td>Fluxo de ar:</td><td>{{ torra.fluxo_ar }}</td></tr>
+            <tr><td>Velocidade do Tambor:</td><td>{{ torra.velocidade_tambor }}</td></tr>
+            <tr><td>Peso:</td><td>{{ torra.peso }} gramas</td></tr>
+            <tr><td>Data da torra:</td><td>{{ torra.data_torra|date:'d/m/Y' }}</td></tr>
+            <tr><td>Café:</td><td>{{ torra.cafe }}</td></tr>
+            <tr><td>Observações:</td><td>{{ torra.observacoes }}</td></tr>
+            <tr><td colspan=2>
+                <div class='grafico-torra'>
+                    <img src="data:image/png;base64, {{ graphic|safe }}">
+                </div>
+            </td></tr>
+            <tr><td colspan=2>
+                <div class='text-end'>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'cafe:torra_editar' torra.id %}">editar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'cafe:torra_apagar' torra.id %}">apagar</a>
+                </div>
+            </td></tr>
+        </table>
+    </div>
+{% endblock content %}

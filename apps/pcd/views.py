@@ -131,6 +131,7 @@ def pcd_result(request):
                 or float(resultado_pcd["valor_parcela"]) < 1
                 or float(resultado_pcd["valor_emprestado"]) < 1
                 or float(resultado_pcd["taxa_de_juros"]) < 1
+                or float(resultado_pcd["valor_parcela"]) > float(resultado_pcd["valor_emprestado"])
             ):
                 messages.error(
                     request,

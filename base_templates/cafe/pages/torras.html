@@ -1,0 +1,81 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+<div class='light-background'>
+    <form method="POST" action="{{ form_action }}">
+        {% csrf_token %}
+        <table class="table table-success table-striped caption-top">
+            <caption>TORRAS</caption>
+            <tr>
+                <th class='text-center'>temperatura inicial</th>
+                <th class='text-center'>temperatura final</th>
+                <th class='text-center'>temperatura piso</th>
+                <th class='text-center'>fluxo de ar</th>
+                <th class='text-center'>velocidade do tambor</th>
+                <th class='text-center'>peso</th>
+                <th class='text-center'>data da torra</th>
+                <th class='text-center'>café</th>
+                <th class='text-center'>referência</th>
+                <th>
+                    <div class="d-grid mx-auto">
+                        <div class="button-adicionar">
+                            <button type="submit"
+                                id="button-adicionar"
+                                title='se quiser usar uma torra base selecione-a e clique em adicionar'
+                                class="btn btn-success btn-sm">adicionar</button>
+                        </div>
+                        <div class="button-comparar">
+                            <button type="submit"
+                                id="button-comparar"
+                                title='selecione duas ou mais torras para comparar'
+                                class="btn btn-success btn-sm">comparar</button>
+                        </div>
+                    </div>
+                </th>
+            {% for torra in torras %}
+                <tr>
+                    <td class="text-end">{{ torra.temperatura_inicial }}</td>
+                    <td class="text-end">{{ torra.temperatura_final }}</td>
+                    <td class="text-end">{{ torra.temperatura_piso }}</td>
+                    <td class="text-end">{{ torra.fluxo_ar }}</td>
+                    <td class="text-end">{{ torra.velocidade_tambor }}</td>
+                    <td class="text-end">{{ torra.peso }}</td>
+                    <td class="text-end">{{ torra.data_torra|date:'d/m/Y' }}</td>
+                    <td>{{ torra.cafe }}</td>
+                    <td class='text-center'><input onclick=selecionaBotao() type="checkbox" name="torra_id" value="{{ torra.id }}"></td>
+                    <td>
+                        <div class="d-grid mx-auto">
+                            <a class="btn btn-secondary btn-sm" href="{% url 'cafe:torra' torra.id %}">detalhes</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+</div>
+<script>
+    let checkboxes = 0;
+    document.querySelector('#button-comparar').style.visibility = "hidden";
+    function selecionaBotao() {
+        checkboxes = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        if(checkboxes <= 1) {
+            document.querySelector('#button-adicionar').style.visibility = "visible";
+            document.querySelector('.button-adicionar').style.zIndex = "9999";
+        }
+        if(checkboxes > 1) {
+            document.querySelector('#button-adicionar').style.visibility = "hidden";
+            document.querySelector('.button-adicionar').style.zIndex = "-1";
+        }
+        if(checkboxes >= 2) {
+            document.querySelector('#button-comparar').style.visibility = "visible";
+            document.querySelector('.button-comparar').style.zIndex = "9999";
+
+        }
+        if(checkboxes < 2) {
+            document.querySelector('#button-comparar').style.visibility = "hidden";
+            document.querySelector('.button-comparar').style.zIndex = "-1";
+
+        }
+    }
+
+</script>
+{% endblock content %}

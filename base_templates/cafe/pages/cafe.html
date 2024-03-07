@@ -1,0 +1,20 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+    <div class='light-background'>
+        <table class="table table-success table-striped caption-top">
+            <caption>CAFÉ</caption>
+            <tr><td>Espécie</td><td>{{ cafe.especie }}</td></tr>
+            <tr><td>Variedade</td><td>{{ cafe.variedade }}</td></tr>
+            <tr><td>Altitude</td><td>{{ cafe.altitude }}</td></tr>
+            <tr><td>Secagem</td><td>{{ cafe.secagem }}</td></tr>
+            <tr><td>Preço</td><td>{{ cafe.preco }}</td></tr>
+            <tr><td>Produtor</td><td>{{ cafe.produtor }}</td></tr>
+            <tr><td colspan=2>
+                <div class='text-end'>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'cafe:cafe_editar' cafe.id %}">editar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'cafe:cafe_apagar' cafe.id %}">apagar</a>
+                </div>
+            </td></tr>
+        </table>
+    </div>
+{% endblock content %}

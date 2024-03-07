@@ -1,0 +1,81 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+<script>
+    count = 0;
+    {% if torra %}
+        let dados_torra = {{ torra.dados_torra|safe }};
+    {% else %}
+        let dados_torra = {};
+    {% endif %}
+
+    function adcElemento() {
+        count++;
+        let formTemperaturas = document.getElementById('temperaturas-torra');
+        let inputTemp = document.createElement('input');
+
+        let tdMin = document.createElement('td');
+        let tdTemp = document.createElement('td');
+        let tdAnt = document.createElement('td');
+       
+        let tr = document.createElement('tr');
+        let div = document.createElement('div');
+
+        inputTemp.setAttribute('type', 'text');
+        inputTemp.setAttribute('name', count);
+        inputTemp.setAttribute('class', 'input-temp');
+        tdTemp.appendChild(inputTemp);
+
+        tdMin.innerHTML = count;
+
+        if (dados_torra[count]){
+            tdAnt.innerHTML = dados_torra[count];
+        }
+        tr.appendChild(tdMin);
+        tr.appendChild(tdTemp);
+        tr.appendChild(tdAnt);
+        formTemperaturas.appendChild(tr);
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    }
+</script>
+<div class='light-background'>
+    {% if torra %}
+    <div class='torra-anterior'>
+        <h6>DADOS DA TORRA BASE</h6>
+        <span>temperatura inicial: <b>{{ torra.temperatura_inicial }}</b></span>
+        <span>temperatura final: <b>{{ torra.temperatura_final }}</b></span>
+        <span>temperatura mais baixa: <b>{{ torra.tempratura_piso }}</b></span>
+        <span>fluxo de ar: <b>{{ torra.fluxo_ar }}</b></span>
+        <span>velocidade do tambor: <b>{{ torra.velocidade_tambor }}</b></span>
+        <span>peso: <b>{{ torra.peso }}</b></span>
+        {% if torra.observacoes %}
+        <span>observações: <b>{{ torra.observacoes }}</b></span>
+        {% endif %}
+    </div>
+    {% endif %}
+    <form method="POST" action="{{ form_action }}"  data-bs-theme="light">
+        {% csrf_token %}
+        {% if torra_id %}
+            <input type='hidden' name='torra_id' value={{ torra_id }}>
+        {% endif %}
+        {% for field in form %}
+                {{ field.label }}
+                {{ field }}
+                {{ field.errors }}
+        {% endfor %}
+        <button type='submit'  class="btn btn-success mt-3 float-end">salvar</button>
+        {% if not torra_id %}
+        <div class='temperaturas'>
+            <div class='form-temperaturas'>
+                <div class='titulo-temperaturas'>Temperaturas</div>
+                <div id='temperaturas-torra'>
+                </div>
+                <div class='button-torra'>
+                    <button type="button" class="btn btn-secondary" onclick="adcElemento();">+</button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+    </form>
+</div>
+{% endblock content %}

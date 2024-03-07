@@ -1,0 +1,20 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+    <div class='light-background'>
+        <table class="table table-success table-striped caption-top">
+            <caption>PRODUTOR</caption>
+            <tr><td>Nome</td><td>{{ produtor.nome }}</td></tr>
+            <tr><td>Localidade</td><td>{{ produtor.localidade }}</td></tr>
+            <tr><td>Cidade</td><td>{{ produtor.cidade }}</td></tr>
+            <tr><td>Estado</td><td>{{ produtor.estado }}</td></tr>
+            <tr><td>Telefone</td><td>{{ produtor.telefone }}</td></tr>
+            <tr><td>E-mail</td><td>{{ produtor.email }}</td></tr>
+            <tr><td colspan=2>
+                <div class='text-end'>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'cafe:produtor_editar' produtor.id %}">editar</a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'cafe:produtor_apagar' produtor.id %}">apagar</a>
+                </div>
+            </td></tr>
+        </table>
+    </div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'cafe/base/base.html' %}
+{% block content %}
+<div class='light-background'>
+    <table class="table table-success table-striped caption-top">
+        <caption>PRODUTORES</caption>
+        <tr>
+            <th>nome</th>
+            <th>localidade</th>
+            <th>cidade</th>
+            <th>estado</th>
+            <th>telefone</th>
+            <th>e-mail</th>
+            <th>
+                <div class="d-grid mx-auto">
+                    <a class="btn btn-success btn-sm" href="{% url 'cafe:produtor_form' %}">adicionar</a>
+                </div>
+            </th>
+
+        </tr>
+        {% for produtor in produtores %}
+        <tr>
+            <td>{{ produtor.nome }}</td>
+            <td>{{ produtor.localidade }}</td>
+            <td>{{ produtor.cidade }}</td>
+            <td>{{ produtor.estado }}</td>
+            <td>{{ produtor.telefone }}</td>
+            <td>{{ produtor.email }}</td>
+            <td>
+                <div class="d-grid mx-auto">
+                    <a class="btn btn-secondary btn-sm" href="{% url 'cafe:produtor' produtor.id %}">detalhes</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

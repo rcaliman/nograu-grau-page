@@ -25,6 +25,8 @@ class FormModelPCD(forms.ModelForm):
         codigo = self.cleaned_data['codigo_banco'].strip()
         if not codigo.isnumeric():
             raise ValidationError('digite apenas caracteres numéricos')
+        if len(codigo) > 3:
+            raise ValidationError('o código do banco deve ser o da compe, com no máximo 3 dígitos')
         return codigo
     
     proxima_parcela = forms.CharField(
