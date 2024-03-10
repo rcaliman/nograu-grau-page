@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     "apps.bikefit.apps.BikefitConfig",
     "apps.mural.apps.MuralConfig",
     "apps.pcd.apps.PcdConfig",
-    "apps.cafe",
+    "apps.cafe.apps.CafeConfig",
 ]
 
 MIDDLEWARE = [
