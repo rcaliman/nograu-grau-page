@@ -86,9 +86,8 @@
     text-align:center;
 }
 .button-comparar {
-    position: absolute;
+
 }
 .button-adicionar {
-    position: absolute;
     z-index: 9999;
 }
