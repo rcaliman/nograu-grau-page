@@ -3,7 +3,7 @@ from .views import cafe_login, produtor_form, produtores, produtor, produtor_edi
 from .views import cafe_form, cafes, cafe_editar, cafe, cafe_apagar
 from .views import torra_form, torras, torra_editar, torra_apagar, torra, comparativo
 
-#app_name = 'cafe'
+app_name = 'cafe'
 
 urlpatterns = [
     path('', cafe_login, name='cafe_login'),
