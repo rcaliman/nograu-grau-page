@@ -10,11 +10,10 @@ from django.http import Http404
 HEAD_TEMPLATE = 'nograu/head.html'
 NAVBAR_TEMPLATE = 'nograu/navbar.html'
 TITLE_TEMPLATE = 'nograu/title.html'
+QTY_BIKEFIT_TODAY = ModelBikefit.objects.all().filter(data=date.today().strftime('%Y-%m-%d')).count()
 
 
 def bikefit_form(request):
-    today = date.today().strftime('%Y-%m-%d')
-    qty_bikefit_today = ModelBikefit.objects.all().filter(data=today).count()
     data_bikefit_form = request.session.get('data_bikefit_form', None)
     form = FormBikefit(data_bikefit_form)
     form_action = reverse('bikefit:bikefit_result')
@@ -26,7 +25,6 @@ def bikefit_form(request):
     )
     return render(request, 'nograu/bikefit/bikefit_form.html', 
                 {
-                    'qty_bikefit_today': qty_bikefit_today,
                     'form': form, 
                     'form_action': form_action, 
                     'labels': labels,
@@ -35,6 +33,7 @@ def bikefit_form(request):
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
+                    'qty_bikefit_today': QTY_BIKEFIT_TODAY,
                 })
 
 
@@ -62,6 +61,7 @@ def bikefit_result(request):
                         'HEAD_TEMPLATE': HEAD_TEMPLATE,
                         'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                         'TITLE_TEMPLATE': TITLE_TEMPLATE,
+                        'qty_bikefit_today': QTY_BIKEFIT_TODAY,
                     })
     return redirect('bikefit:bikefit_form')
 
@@ -91,6 +91,7 @@ def previous_calcs(request):
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
+                    'qty_bikefit_today': QTY_BIKEFIT_TODAY,
                 })
 
 def bikefit_links(request):
@@ -106,6 +107,7 @@ def bikefit_links(request):
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
+                    'qty_bikefit_today': QTY_BIKEFIT_TODAY,
                 })
 
 def bikefit_about(request):
@@ -120,4 +122,5 @@ def bikefit_about(request):
                     'HEAD_TEMPLATE': HEAD_TEMPLATE,
                     'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
                     'TITLE_TEMPLATE': TITLE_TEMPLATE,
+                    'qty_bikefit_today': QTY_BIKEFIT_TODAY,
                 })
