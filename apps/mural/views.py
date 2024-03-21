@@ -4,10 +4,14 @@ from .forms import FormModelMural
 from .models import ModelMural
 from django.contrib import messages
 from .utils.pagination import make_pagination
+from ..bikefit.models import ModelBikefit
+from datetime import date
 
 HEAD_TEMPLATE = 'nograu/head.html'
 NAVBAR_TEMPLATE = 'nograu/navbar.html'
 TITLE_TEMPLATE = 'nograu/title.html'
+QTY_BIKEFIT_TODAY = ModelBikefit.objects.all().filter(data=date.today().strftime('%Y-%m-%d')).count()
+
 
 def mural(request):
     action_form = reverse('mural:mural')
@@ -36,4 +40,5 @@ def mural(request):
         'HEAD_TEMPLATE': HEAD_TEMPLATE,
         'NAVBAR_TEMPLATE': NAVBAR_TEMPLATE,
         'TITLE_TEMPLATE': TITLE_TEMPLATE,
+        'qty_bikefit_today': QTY_BIKEFIT_TODAY,
     })
