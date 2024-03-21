@@ -115,6 +115,7 @@ def pcd_result(request):
                     "NAVBAR_TEMPLATE": NAVBAR_TEMPLATE,
                     "TITLE_TEMPLATE": TITLE_TEMPLATE,
                     "resultado_ispb": resultado_ispb,
+                    "resultado_pcd": None,
                     "quantidade_calculos": quantidade_calculos,
                 },
             )
