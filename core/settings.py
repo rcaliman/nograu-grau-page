@@ -49,7 +49,7 @@ LOGGING = {
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool)
 
-PRD = config("PRD", cast=bool)
+DATABASE = config("DATABASE")
 
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS", cast=lambda x: [s.strip() for s in x.split(",")]
@@ -109,7 +109,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if PRD:
+if DATABASE == 'mysql':
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
@@ -120,14 +120,24 @@ if PRD:
             "PORT": config("DB_PORT"),
         }
     }
-else:
+elif DATABASE == 'postgres':
+        DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("DB_NAME"),
+            "USER": config("DB_USER"),
+            "PASSWORD": config("DB_PASSWORD"),
+            "HOST": config("DB_HOST"),
+            "PORT": config("DB_PORT"),
+        }
+    }
+elif DATABASE == 'sqlite':
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

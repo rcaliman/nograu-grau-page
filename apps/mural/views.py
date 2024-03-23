@@ -10,9 +10,6 @@ from datetime import date
 HEAD_TEMPLATE = "nograu/head.html"
 NAVBAR_TEMPLATE = "nograu/navbar.html"
 TITLE_TEMPLATE = "nograu/title.html"
-QTY_BIKEFIT_TODAY = (
-    ModelBikefit.objects.all().filter(data=date.today().strftime("%Y-%m-%d")).count()
-)
 
 
 def mural(request):
@@ -34,6 +31,7 @@ def mural(request):
         "Deixe suas mensagens, dúvidas e críticas construtivas. Por favor, tenham cortesia e educação."
     ]
     page_obj, pagination_range = make_pagination(request, posts, 10)
+    qty_bikefit_today = ModelBikefit.objects.all().filter(data=date.today().strftime('%Y-%m-%d')).count()
     return render(
         request,
         "nograu/mural/mural.html",
@@ -47,6 +45,6 @@ def mural(request):
             "HEAD_TEMPLATE": HEAD_TEMPLATE,
             "NAVBAR_TEMPLATE": NAVBAR_TEMPLATE,
             "TITLE_TEMPLATE": TITLE_TEMPLATE,
-            "qty_bikefit_today": QTY_BIKEFIT_TODAY,
+            "qty_bikefit_today": qty_bikefit_today,
         },
     )
