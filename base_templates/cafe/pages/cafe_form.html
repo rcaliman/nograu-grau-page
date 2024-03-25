@@ -3,7 +3,7 @@
 <div class='light-background'>
     <form method="POST" action="{{ form_action }}"  data-bs-theme="light">
         {% csrf_token %}
-        {% if cafe_id %}
+        {% if cafe_id is not None %}
             <input type="hidden" name="cafe_id" value="{{ cafe_id }}">
         {% endif %}
         {% for field in form %}

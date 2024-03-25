@@ -72,7 +72,7 @@ class TorraForm(forms.ModelForm):
             "observacoes": forms.TextInput(attrs={"class": "form-control"}),
         }
         labels = {
-            "temperatura_inicial": "Tempratura inicial:",
+            "temperatura_inicial": "Temperatura inicial:",
             "temperatura_final": "Temperatura final:",
             "temperatura_piso": "Temperatura mais baixa:",
             "fluxo_ar": "Fluxo de ar:",

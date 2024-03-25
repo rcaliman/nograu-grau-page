@@ -61,7 +61,7 @@ def produtor_form(request):
     return render(
         request,
         "cafe/pages/produtor_form.html",
-        {"form": form, "form_action": form_action},
+        {"form": form, "form_action": form_action, "produtor_id": None},
     )
 
 
@@ -92,7 +92,9 @@ def cafe_form(request):
     form = CafeForm
     form_action = reverse("cafe:cafes")
     return render(
-        request, "cafe/pages/cafe_form.html", {"form": form, "form_action": form_action}
+        request,
+        "cafe/pages/cafe_form.html",
+        {"form": form, "form_action": form_action, "cafe_id": None},
     )
 
 
@@ -142,7 +144,7 @@ def cafe_apagar(request, cafe_id):
 def torra_form(request):
     form = TorraForm
     form_action = reverse("cafe:torras")
-    torra_id = ""
+    torra_id = None
     if request.POST:
         lista_ids = request.POST.getlist("torra_id")
         if len(lista_ids) == 1:
@@ -150,17 +152,27 @@ def torra_form(request):
         if len(lista_ids) > 1:
             request.session["lista_ids"] = lista_ids
             return redirect("cafe:comparativo")
-    if torra_id != "":
+    if torra_id is not None:
         torra = TorraModel.objects.get(id=torra_id)
         return render(
             request,
             "cafe/pages/torra_form.html",
-            {"form": form, "form_action": form_action, "torra": torra},
+            {
+                "form": form,
+                "form_action": form_action,
+                "torra": torra,
+                "torra_id": None,
+            },
         )
     return render(
         request,
         "cafe/pages/torra_form.html",
-        {"form": form, "form_action": form_action},
+        {
+            "form": form, 
+            "form_action": form_action, 
+            "torra_id": None, 
+            "torra": None
+        },
     )
 
 
@@ -198,7 +210,12 @@ def torra_editar(request, torra_id):
     return render(
         request,
         "cafe/pages/torra_form.html",
-        {"form": form, "form_action": form_action, "torra_id": torra_id},
+        {
+            "form": form,
+            "form_action": form_action,
+            "torra_id": torra_id,
+            "torra": None
+        },
     )
 
 
