@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('apps.bikefit.urls')),
     path('', include('apps.mural.urls')),
     path('', include('apps.pcd.urls')),
+    path('', include('apps.horas.urls')),
     path('cafe/', include('apps.cafe.urls')),
 ]

@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     "apps.mural.apps.MuralConfig",
     "apps.pcd.apps.PcdConfig",
     "apps.cafe.apps.CafeConfig",
+    "apps.horas.apps.HorasConfig",
 ]
 
 MIDDLEWARE = [
