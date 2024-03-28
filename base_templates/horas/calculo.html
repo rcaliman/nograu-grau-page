@@ -24,13 +24,9 @@
                         <div class='col col-lg-2 mt-1 p-1 bg-light text-dark"'>{{ field }} {% if field.name == 'jornada' %} horas{% endif %}</div>
                     </div>
                     {% endfor %}
-                    <div class="row justify-content-md-center">
-                        <div class='col col-lg-2 mt-2'><button type='submit'>Calcular</button></div>
-                    </div>
+                        <div class='text-center mt-2'><button class='btn btn-primary' type='submit'>Calcular</button></div>
                     {% if hora_saida is not None %}
-                    <div class="row justify-content-md-center">
-                        <p class="h1 mt-3">Saída: {{ hora_saida }}</p>
-                    </div>
+                        <div class="text-center h1 mt-3">Saída: {{ hora_saida }}</div>
                     {% endif %}
                 </form>
         </div>
