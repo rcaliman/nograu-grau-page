@@ -8,7 +8,7 @@ from core.settings import BASE_DIR
 import os
 from datetime import datetime
 from numpy_financial import rate, pv
-import csv
+import pandas as pd
 
 HEAD_TEMPLATE = "pcd/head.html"
 NAVBAR_TEMPLATE = "pcd/navbar.html"
@@ -242,24 +242,14 @@ def formata_valor(valor_parcela: str) -> float:
 def busca_banco(codigo_banco):
     arquivo = BASE_DIR / "apps" / "pcd" / "lista_de_bancos.csv"
     with open(arquivo, encoding="utf-8") as f:
-        reader = csv.reader(f)
-        for linha in reader:
-            (
-                ispb,
-                nome_reduzido,
-                numero_codigo,
-                participa_da_compe,
-                acesso_principal,
-                nome_extenso,
-                inicio_da_operacao,
-            ) = linha
-            if numero_codigo.isnumeric():
-                if int(codigo_banco) == int(numero_codigo):
-                    return {
-                        "numero_codigo": numero_codigo,
-                        "numero_ispb": ispb,
-                        "nome_extenso": nome_extenso,
-                    }
+        reader = pd.read_csv(f)
+        for _, linha in reader.iterrows():
+            if int(codigo_banco) == linha.Número_Código:
+                return {
+                    "numero_codigo": linha.Número_Código,
+                    "numero_ispb": linha.ISPB,
+                    "nome_extenso": linha.Nome_Extenso,
+                }
         return {
             "numero_codigo": codigo_banco,
             "numero_ispb": "não encontrado",
