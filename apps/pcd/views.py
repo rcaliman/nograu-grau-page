@@ -244,9 +244,9 @@ def busca_banco(codigo_banco):
     with open(arquivo, encoding="utf-8") as f:
         reader = pd.read_csv(f)
         for _, linha in reader.iterrows():
-            if int(codigo_banco) == linha.Número_Código:
+            if int(codigo_banco) == int(linha.Número_Código):
                 return {
-                    "numero_codigo": linha.Número_Código,
+                    "numero_codigo": int(linha.Número_Código),
                     "numero_ispb": linha.ISPB,
                     "nome_extenso": linha.Nome_Extenso,
                 }
